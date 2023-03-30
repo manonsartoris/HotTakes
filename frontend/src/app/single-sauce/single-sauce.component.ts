@@ -34,11 +34,11 @@ export class SingleSauceComponent implements OnInit {
       switchMap(id => this.sauces.getSauceById(id)),
       tap(sauce => {
         this.loading = false;
-        // if (sauce.usersLiked.find(user => user === this.userId)) {
-        //   this.liked = true;
-        // } else if (sauce.usersDisliked.find(user => user === this.userId)) {
-        //   this.disliked = true;
-        // }
+        if (sauce.usersLiked.find(user => user === this.userId)) {
+          this.liked = true;
+        } else if (sauce.usersDisliked.find(user => user === this.userId)) {
+          this.disliked = true;
+        }
       })
     );
   }
